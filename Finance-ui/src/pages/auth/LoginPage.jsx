@@ -1,7 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { setCookie } from "../../utils/cookies";
+import { useAuthContext } from "../../context/AuthContext";
 
 const LoginPage = () => {
+  const navigate = useNavigate();
+  const { setIsLogin } = useAuthContext();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -28,7 +33,15 @@ const LoginPage = () => {
       }
 
       const token = data.token;
-      document.cookie = `token=${token}; max-age=86400; path=/`;
+      setCookie("token", token, "86400", "/");
+      // document.cookie = `token=${token}; max-age=86400; path=/`;
+
+      setIsLogin(true);
+
+      setEmail("");
+      setPassword("");
+
+      navigate("/", { replace: true });
     } catch (err) {
       console.log(err);
     }

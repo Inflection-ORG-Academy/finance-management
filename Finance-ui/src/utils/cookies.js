@@ -10,3 +10,7 @@ export const getCookie = (name) => {
   }
   return null; // Return null if cookie doesn't exist
 };
+
+export const setCookie = (name, value, expiresTime = "3600", path = "/") => {
+  document.cookie = `${name}=${value}; max-age=${expiresTime}; path=${path}`;
+};

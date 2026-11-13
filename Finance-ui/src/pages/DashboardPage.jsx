@@ -31,13 +31,11 @@ const DashboardPage = () => {
   };
 
   return (
-    <>
-      <div className="text-xl text-blue-900">
-        <h1>Dashboard</h1>
+    <div className="text-xl text-blue-900">
+      <h1>Dashboard</h1>
 
-        <button onClick={addExpense}>Add Expense</button>
-      </div>
-    </>
+      <button onClick={addExpense}>Add Expense</button>
+    </div>
   );
 };
 

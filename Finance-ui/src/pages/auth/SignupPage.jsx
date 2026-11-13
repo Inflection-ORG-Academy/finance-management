@@ -39,7 +39,7 @@ const SignupPage = () => {
 
       alert(data.message);
 
-      navigate("/auth/login");
+      navigate("/auth/login", { replace: true });
     } catch (err) {
       console.log(err);
     }
