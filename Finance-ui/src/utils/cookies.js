@@ -14,3 +14,9 @@ export const getCookie = (name) => {
 export const setCookie = (name, value, expiresTime = "3600", path = "/") => {
   document.cookie = `${name}=${value}; max-age=${expiresTime}; path=${path}`;
 };
+
+export const deleteCookie = (tokenName) => {
+  let cookieString = `${encodeURIComponent(tokenName)}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+
+  document.cookie = cookieString;
+};

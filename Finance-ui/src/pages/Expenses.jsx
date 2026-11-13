@@ -1,7 +1,12 @@
 import React from "react";
+import { MainLayout } from "../components/MainLayout";
 
 const ExpensesPage = () => {
-  return <div>ExpensesPage</div>;
+  return (
+    <MainLayout>
+      <div>ExpensesPage</div>
+    </MainLayout>
+  );
 };
 
 export default ExpensesPage;

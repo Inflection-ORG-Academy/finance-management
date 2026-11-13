@@ -5,7 +5,7 @@ import { useAuthContext } from "../../context/AuthContext";
 
 const LoginPage = () => {
   const navigate = useNavigate();
-  const { setIsLogin } = useAuthContext();
+  const { setIsLogin, setUser } = useAuthContext();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -33,10 +33,15 @@ const LoginPage = () => {
       }
 
       const token = data.token;
+      const name = data.user?.name;
+      const userEmail = data.user?.email;
       setCookie("token", token, "86400", "/");
       // document.cookie = `token=${token}; max-age=86400; path=/`;
 
+      setCookie("name", name, "86400", "/");
+      setCookie("email", userEmail, "86400", "/");
       setIsLogin(true);
+      setUser({ name, email: userEmail });
 
       setEmail("");
       setPassword("");
